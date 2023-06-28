@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.JPanel;
 
@@ -21,6 +22,7 @@ public class DemoPanel extends JPanel{
 
     boolean goalReached = false;
     int step = 0;
+    int distanceTolerance = 3; //Changes the random Start and Goal distance tolerance
 
     public DemoPanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -43,10 +45,16 @@ public class DemoPanel extends JPanel{
             row++;
            }
         }
-        setStartNode(3, 6);
-        setGoalNode(11, 3);
 
-        
+        setRandomStartAndGoal();
+        //setStartNode(3, 6);
+        //setGoalNode(11, 3);
+
+        setSolidNode(3, 5);
+        setSolidNode(4, 5);
+        setSolidNode(5, 5);
+        setSolidNode(6, 5);
+        setSolidNode(7, 5);
         setSolidNode(7, 2);
         setSolidNode(8, 3);
         setSolidNode(8, 4);
@@ -56,8 +64,6 @@ public class DemoPanel extends JPanel{
         setSolidNode(10, 5);
         setSolidNode(10, 6);
         setSolidNode(10, 7);
-        setSolidNode(11, 4);
-        setSolidNode(11, 5);
         setSolidNode(12, 4);
         setSolidNode(12, 5);
 
@@ -238,4 +244,27 @@ public class DemoPanel extends JPanel{
             }
         }
     }
+
+    private void setRandomStartAndGoal(){
+        Random random = new Random();
+        boolean validStartNode = false;
+        boolean validGoalNode = false;
+
+        while(!validStartNode || !validStartNode){
+             int startCol = random.nextInt(maxCol);
+             int startRow = random.nextInt(maxRow);
+
+             if(!node[startCol][startRow].isSolid() && !node[startCol][startRow].isGoal()){
+                setStartNode(startCol, startRow);
+                validStartNode = true;
+             }
+
+             int goalCol = random.nextInt(maxCol);
+             int goalRow = random.nextInt(maxRow);
+             if (!node[goalCol][goalRow].isSolid() && !node[goalCol][goalRow].isStart() && (Math.abs(goalCol - startCol) + Math.abs(goalRow - startRow) >= distanceTolerance)) {
+                setGoalNode(goalCol, goalRow);
+                validGoalNode = true;
+             }
+        }   
+    }    
 }
