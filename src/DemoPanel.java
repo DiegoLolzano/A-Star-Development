@@ -250,7 +250,7 @@ public class DemoPanel extends JPanel{
         boolean validStartNode = false;
         boolean validGoalNode = false;
 
-        while(!validStartNode || !validStartNode){
+        while(!validStartNode || !validGoalNode){
              int startCol = random.nextInt(maxCol);
              int startRow = random.nextInt(maxRow);
 
