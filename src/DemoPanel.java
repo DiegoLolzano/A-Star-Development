@@ -22,7 +22,7 @@ public class DemoPanel extends JPanel{
 
     boolean goalReached = false;
     int step = 0;
-    int distanceTolerance = 3; //Changes the random Start and Goal distance tolerance
+    int distanceTolerance = 5; //Changes the random Start and Goal distance tolerance
 
     public DemoPanel(){
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
@@ -47,8 +47,8 @@ public class DemoPanel extends JPanel{
         }
 
         //setRandomStartAndGoal();
-        setStartNode(11, 4);
-        setGoalNode(7, 4);
+        setGoalNode(23, 3);
+        setStartNode(20, 14);
 
 
         //CUBE NODES
