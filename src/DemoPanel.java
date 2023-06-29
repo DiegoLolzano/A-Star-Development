@@ -9,9 +9,9 @@ import javax.swing.JPanel;
 public class DemoPanel extends JPanel{
 
     //Screen Settings
-    final int maxCol = 15;
-    final int maxRow = 10;
-    final int nodeSize = 70;
+    final int maxCol = 25;
+    final int maxRow = 16;
+    final int nodeSize = 60;
     final int screenWidth = nodeSize * maxCol;
     final int screenHeight = nodeSize * maxRow;
 
@@ -46,26 +46,94 @@ public class DemoPanel extends JPanel{
            }
         }
 
-        setRandomStartAndGoal();
-        //setStartNode(3, 6);
-        //setGoalNode(11, 3);
+        //setRandomStartAndGoal();
+        setStartNode(11, 4);
+        setGoalNode(7, 4);
 
-        setSolidNode(3, 5);
-        setSolidNode(4, 5);
-        setSolidNode(5, 5);
-        setSolidNode(6, 5);
-        setSolidNode(7, 5);
-        setSolidNode(7, 2);
-        setSolidNode(8, 3);
-        setSolidNode(8, 4);
-        setSolidNode(8, 5);
-        setSolidNode(10, 3);
-        setSolidNode(10, 4);
-        setSolidNode(10, 5);
-        setSolidNode(10, 6);
-        setSolidNode(10, 7);
-        setSolidNode(12, 4);
-        setSolidNode(12, 5);
+
+        //CUBE NODES
+        setCubeNode(24, 13);
+        setCubeNode(24, 10);
+        setCubeNode(24, 7);
+
+        setCubeNode(23, 13);
+        setCubeNode(23, 10);
+        setCubeNode(23, 7);
+
+        //CONE NODES
+        setConeNode(24, 15);
+        setConeNode(24, 14);
+        setConeNode(24, 12);
+        setConeNode(24, 11);
+        setConeNode(24, 9);
+        setConeNode(24, 8);
+        setConeNode(24, 6);
+        setConeNode(24, 5);
+
+        setConeNode(23, 15);
+        setConeNode(23, 14);
+        setConeNode(23, 12);
+        setConeNode(23, 11);
+        setConeNode(23, 9);
+        setConeNode(23, 8);
+        setConeNode(23, 6);
+        setConeNode(23, 5);
+
+        //HYBRID NODES
+        setHybridNode(22, 15);
+        setHybridNode(22, 14);
+        setHybridNode(22, 13);
+        setHybridNode(22, 12);
+        setHybridNode(22, 11);
+        setHybridNode(22, 10);
+        setHybridNode(22, 9);
+        setHybridNode(22, 8);
+        setHybridNode(22, 7);
+        setHybridNode(22, 6);
+        setHybridNode(22, 5);
+
+        //WALLS AND BARRIERS
+        //LOADING ZONE AND HUMAND PLAYER STATIONSs
+        setSolidNode(24, 0);
+        setSolidNode(24, 1);
+        setSolidNode(24, 2);
+        setSolidNode(24, 3);
+
+        //RED BARRIER
+        setSolidNode(24, 4);
+        setSolidNode(23, 4);
+        setSolidNode(22, 4);
+        setSolidNode(21, 4);
+        setSolidNode(20, 4);
+        setSolidNode(19, 4);
+        setSolidNode(18, 4);
+        setSolidNode(17, 4);
+
+        //RED CHARGE STATION
+        setSolidNode(17, 8);
+        setSolidNode(16, 8);
+        setSolidNode(15, 8);
+        setSolidNode(14, 8);
+
+        setSolidNode(17, 9);
+        setSolidNode(16, 9);
+        setSolidNode(15, 9);
+        setSolidNode(14, 9);
+
+        setSolidNode(17, 10);
+        setSolidNode(16, 10);
+        setSolidNode(15, 10);
+        setSolidNode(14, 10);
+
+        setSolidNode(17, 11);
+        setSolidNode(16, 11);
+        setSolidNode(15, 11);
+        setSolidNode(14, 11);
+
+        setSolidNode(17, 12);
+        setSolidNode(16, 12);
+        setSolidNode(15, 12);
+        setSolidNode(14, 12);
 
         setCostOnNodes();
     }
@@ -84,6 +152,18 @@ public class DemoPanel extends JPanel{
 
     private void setSolidNode(int col, int row){
         node[col][row].setAsSolid();
+    }
+
+    private void setConeNode(int col, int row){
+        node[col][row].setAsConeNode();
+    }
+
+    private void setCubeNode(int col, int row){
+        node[col][row].setAsCubeNode();
+    }
+
+    private void setHybridNode(int col, int row){
+        node[col][row].setAsHybridNode();
     }
 
     private void setCostOnNodes(){

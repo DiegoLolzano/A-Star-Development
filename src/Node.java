@@ -73,6 +73,24 @@ public class Node extends JButton implements ActionListener{
         setForeground(Color.black);
     }
 
+    public void setAsConeNode(){
+        setBackground(Color.yellow);
+        setForeground(Color.yellow);
+        solid = true;
+    }
+
+    public void setAsCubeNode(){
+        setBackground(Color.magenta);
+        setForeground(Color.magenta);
+        solid = true;
+    }
+
+    public void setAsHybridNode(){
+        setBackground(Color.gray);
+        setForeground(Color.gray);
+        solid = true;
+    }
+
     public boolean isSolid() {
         return solid;
     }
